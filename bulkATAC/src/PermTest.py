@@ -25,4 +25,4 @@ sample_perms = frag_mat[[perm_peaks],[sample_cols]]
 par_perms = frag_mat[[perm_peaks],[par_cols]]
 fc = pd.DataFrame(sample_perms[0].copy()/par_perms[0].copy())
 fc_obs = cn_fragments.copy()[sample_id]/cn_fragments.copy()['parent']
-pkl.dump(fc, open('/singlecellcenter/greg/ATAC_22-2-24/PermTest/'+sample_id+'_fc_background_withGC.pkl', 'wb'), protocol=4)
+pkl.dump(fc, open('../data/'+sample_id+'_fc_background_withGC.pkl', 'wb'), protocol=4)
