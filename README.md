@@ -32,14 +32,10 @@ To rerun our analysis:
 2) Download necessary packages based on those required in analysis_macro.R or using /nature_2023_submission_code_2/preprocessing/src/environment/R-packages-to-download.R
 3) Run /nature_2023_submission_code_2/scRNA/src/analysis_scripts/analysis_macro.R 
 
-<<<<<<< HEAD
 #Note: This will create many data file intermediates and plots. 
 
 For any questions about the scripts or generated plots please feel free to reach out to us for clarification. 
-=======
-#Note: This will create many data file intermediates and plots.
->>>>>>> master
 
-### ATACSeq
+### bulkATAC
 
-### BulkRNA
+### bulkRNA
