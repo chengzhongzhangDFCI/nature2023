@@ -37,4 +37,11 @@ For any questions about the scripts or generated plots please feel free to reach
 
 ### bulkATAC
 
+Source code and results for bulk ATAC sequencing of RPE-1 chr4 bridge clones.
+
+./bulkATAC/data/BigWigs --> normalized ATAC peak signal after normalization for library size and copy-number
+./bulkATAC/data/FC_tables --> genome-wide normalized ATAC signal for 1 Mb intervals
+./bulkATAC/data/ATAC_fragcounts_raw.txt --> unprocessed ATAC seq fragment counts in peaks
+./bulkATAC/data/bg_gc.dat --> ATAC seq background peak set for permutation analysis
+
 ### bulkRNA
