@@ -45,3 +45,5 @@ Source code and results for bulk ATAC sequencing of RPE-1 chr4 bridge clones.
 ./bulkATAC/data/bg_gc.dat --> ATAC seq background peak set for permutation analysis
 
 ### bulkRNA
+
+See `./bulkRNA/src/workbook_bulkRNAanalysis.ipynb` for details.
