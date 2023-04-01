@@ -2,11 +2,10 @@
 ## Heritable transcriptional defects from aberrations of nuclear architecture
 
 ### Authors: 
-- Nikos Mynhier
-- Gregory Brunette
-- Lanting Li
-- Etai Jacob
-- Cheng-Zhong Zhang
+- Nikos Mynhier (single-cell RNA-Seq analysis)
+- Lanting Li (bulk RNA-Seq analysis)
+- Gregory Brunette (bulk ATAC-Seq analysis and DNA copy-number analysis)
+- Shiwei Liu and Stamatis Papathanasiou (imaging data analysis)
 
 ### README:
 
