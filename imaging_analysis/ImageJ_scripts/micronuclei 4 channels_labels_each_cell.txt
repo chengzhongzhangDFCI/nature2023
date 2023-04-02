@@ -1,0 +1,85 @@
+
+name = getTitle();
+path = getDirectory("image");
+
+run("Duplicate...", " ");
+run("Auto Threshold", "method=Li white");
+setOption("BlackBackground", false);
+run("Convert to Mask", "method=Default background=Default");
+run("Fill Holes", "stack");
+run("Watershed", "stack");
+setTool("wand");
+
+waitForUser ("Select 3* regions of interest in the order of MN, PN and background (['t'] to add) and Press OK after your selection."); 
+//Select ROI
+
+name2 = getTitle();
+selectWindow(name2);
+close();
+
+selectWindow(name);
+
+label_list = newArray("MN", "PN", "BG");
+
+counts=roiManager("count");
+array=newArray(counts); 
+for(i=0; i<counts; i++) {
+    roiManager("Select", i);
+    roiManager("Rename", "Channel-1_"+label_list[i]);
+    //run("Enlarge...", "enlarge=-1");
+    roiManager("Update");
+    run("Select All");
+    roiManager("Measure");
+}
+//Measure the DAPI channel above
+
+//selectWindow(name);
+//saveAs("jpeg", path + "ROIs of " + name);
+
+
+run("Open Next");
+roiManager("Show All without labels");
+waitForUser ("Modify ROIs if needed and Press OK");
+for(i=0; i<counts; i++) {
+    roiManager("Select", i);
+    roiManager("Rename", "Channel-2_"+label_list[i]);
+    //run("Enlarge...", "enlarge=1");
+    roiManager("Update");
+    run("Select All");
+    roiManager("Measure");
+}
+//Measure the next channel (488 - PolS5) above
+
+
+run("Open Next");
+roiManager("Show All without labels");
+waitForUser ("Modify ROIs if needed and Press OK");
+for(i=0; i<counts; i++) {
+    roiManager("Select", i);
+    roiManager("Rename", "Channel-3_"+label_list[i]);
+    roiManager("Update");
+    run("Select All");
+    roiManager("Measure");
+}
+
+//Measure the next channel (568 - NLS) above
+
+
+
+run("Open Next");
+roiManager("Show All without labels");
+waitForUser ("Modify ROIs if needed and Press OK");
+for(i=0; i<counts; i++) {
+    roiManager("Select", i);
+    roiManager("Rename", "Channel-4_"+label_list[i]);
+    //run("Enlarge...", "enlarge=2");
+    roiManager("Update");
+    run("Select All");
+    roiManager("Measure");
+}
+close();
+//Measure the next channel (647 - Pom121) above
+
+selectWindow ("ROI Manager");
+//roiManager("Save", path + name + " ROI.zip");
+run("Close" );
