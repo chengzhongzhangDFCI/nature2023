@@ -1,0 +1,44 @@
+
+
+// Specifiy global variables; Process files only in 488 channel
+
+input = getDirectory("Input directory");
+output = getDirectory("Output directory");
+Dialog.create("File Type");
+Dialog.addString("File suffix: ", "488 laser_t1.TIF");
+suffix = Dialog.getString();
+
+setBatchMode(false);
+// setBatchMode to be false to show active images for selection
+
+
+processFolder (input);
+// run processFolder function
+
+// def the function to scan through the input folder and call the process function.
+function processFolder(input){
+	list = getFileList(input);
+	for (i = 0; i < list.length; i++) {
+		if (File.isDirectory(input + list[i]))
+			processFolder("" + input + list[i]); // needs to use slice >1 to filter out thumbs
+		if (endsWith(list[i], suffix))
+			processFile(input, output, list[i]);	
+	}
+}
+
+
+
+// def the function to process the folder.
+function processFile(input, output, file) {
+	        if(indexOf(file, 'thumb')<0){
+        	open (input + file);
+        	outName = " Cropped"+File.getName (file);
+        	waitForUser("Select a Rectangle region in the best focal plan to crop a cell of interest and next Press OK");
+        	//run("Crop");
+        	run("Duplicate...", " ");
+        	saveAs("tiff", output + outName);
+        	close();
+	        }
+}
+
+
